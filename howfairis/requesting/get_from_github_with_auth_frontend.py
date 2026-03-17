@@ -1,13 +1,13 @@
-import requests
+from .session import get_session
 
 
 def get_from_github_with_auth_frontend(url, apikeys):
     """ """
     headers = {
-        "Accept": "text/javascript, text/html, application/xml"
+        "Accept": "application/vnd.github.v3+json"
     }
 
     username = apikeys.get("github-user")
     key = apikeys.get("github-key")
 
-    return requests.get(url, headers, auth=(username, key), timeout=10)
+    return get_session().get(url, headers=headers, auth=(username, key), timeout=10)

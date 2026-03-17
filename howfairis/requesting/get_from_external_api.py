@@ -1,6 +1,6 @@
-import requests
+from .session import get_session
 
 
 def get_from_external_no_auth_api(url):
     """ """
-    return requests.get(url, timeout=15)
+    return get_session().get(url, timeout=15)

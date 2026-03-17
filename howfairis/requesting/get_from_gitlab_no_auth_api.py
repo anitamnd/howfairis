@@ -1,4 +1,4 @@
-import requests
+from .session import get_session
 
 
 def get_from_gitlab_no_auth_api(url):
@@ -7,4 +7,4 @@ def get_from_gitlab_no_auth_api(url):
         "Accept": "application/json"
     }
 
-    return requests.get(url, headers, timeout=10)
+    return get_session().get(url, headers=headers, timeout=10)

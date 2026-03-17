@@ -1,6 +1,6 @@
-import requests
+from .session import get_session
 
 
 def get_from_gitlab_no_auth_raw(url):
     """ """
-    return requests.get(url, timeout=10)
+    return get_session().get(url, timeout=10)

@@ -1,4 +1,4 @@
-import requests
+from .session import get_session
 
 
 def get_from_github_with_auth_api(url, apikeys):
@@ -10,4 +10,4 @@ def get_from_github_with_auth_api(url, apikeys):
     username = apikeys.get("github-user")
     key = apikeys.get("github-key")
 
-    return requests.get(url, headers, auth=(username, key), timeout=10)
+    return get_session().get(url, headers=headers, auth=(username, key), timeout=10)
